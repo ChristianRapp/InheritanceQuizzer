@@ -20,24 +20,119 @@ public class Main
 		
 		public static void main(String[] args) throws IOException
 			{
-			B b = new C(1);
-			System.out.println(b.doAThing());
-			
+	
 			   addQuestions();
-			   mainMenu();
+			  // mainMenu();
 			   askQuestions();
-				//B b = new B();
-				//System.out.println(b.getANum());
+			   endGame();
 			}
 		
 		public static void askQuestions()
 		{
+			Scanner userInput = new Scanner(System.in);
 			Collections.shuffle(questions);
 			
 			for(Quiz fred: questions)
 			{
+				ArrayList<String>answers = new ArrayList<String>();
+				answers.add(fred.getCorrectAnswer());
+				answers.add(fred.getAnswer2());
+				answers.add(fred.getAnswer3());
+				answers.add(fred.getAnswer4());
+				Collections.shuffle(answers);
+				
 				System.out.println(fred.getQuestion());
+				System.out.println();
+				
+					System.out.println("A) "+answers.get(0));
+					System.out.println("B) "+answers.get(1));
+					System.out.println("C) "+answers.get(2));
+					System.out.println("D) "+answers.get(3));
+					
+				String a = userInput.nextLine();
+				
+				switch(a)
+				{
+				case "A":
+				case "a":
+					{
+					if(answers.get(0).equals(fred.getCorrectAnswer()))
+						{
+						score++;
+						System.out.println("Correct");
+						}
+					else
+						{
+						System.out.println("Sorry that is incorrect");
+						System.out.println("The correct answer was " + fred.getCorrectAnswer());
+						}
+						
+					break;
+					}
+					
+				case "B":
+				case "b":
+					{
+					if(answers.get(1).equals(fred.getCorrectAnswer()))
+						{
+						score++;
+						System.out.println("Correct");
+						}
+					else
+						{
+						System.out.println("Sorry that is incorrect");
+						System.out.println("The correct answer was " + fred.getCorrectAnswer());
+
+						}
+						
+					break;
+					}		
+					
+				case "C":
+				case "c":
+					{
+					if(answers.get(2).equals(fred.getCorrectAnswer()))
+						{
+						score++;
+						System.out.println("Correct");
+						}
+					else
+						{
+						System.out.println("Sorry that is incorrect");
+						System.out.println("The correct answer was " + fred.getCorrectAnswer());
+
+						}
+						
+					break;
+					}	
+				
+				case "D":
+				case "d":
+					{
+					if(answers.get(0).equals(fred.getCorrectAnswer()))
+						{
+						score++;
+						System.out.println("Correct");
+						}
+					else
+						{
+						System.out.println("Sorry that is incorrect");
+						System.out.println("The correct answer was " + fred.getCorrectAnswer());
+
+						}
+						
+					break;
+					}
+					
+				default:
+					{
+					System.out.println("Sorry that is incorrect");
+					}
+				
+				}
 			}
+			
+			
 			
 		}
 		
@@ -133,18 +228,61 @@ public class Main
 			
 			questions.add(new Quiz("C c = new C(1); What is the value of num?", 18,  "1", "10", "14", "15"));
 			
-			questions.add(new Quiz("C c = new C(1) What will be returned if c.changeStr() is called?", 19,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(1); What will be returned if c.changeStr() is called?", 19,  "", "", "", ""));
 			
-			questions.add(new Quiz("C c = new C(1) What will the value of num be if the line of code (num = i;) is taken out of the the C constructor?", 20,  "10", "1", "14", "5"));
+			questions.add(new Quiz("C c = new C(1); What will the value of num be if the line of code (num = i;) is taken out of the the C constructor?", 20,  "10", "1", "14", "5"));
 			
 			questions.add(new Quiz("A a = new C(1); What will a.changeStr() return?", 21,  "STR2", "STR1", "Error", "STR"));
 			
-			questions.add(new Quiz("A a = new C(2) What will the value of num be?", 22,  "2", "5", "1", "10"));
+			questions.add(new Quiz("A a = new C(2); What will the value of num be?", 22,  "2", "5", "1", "10"));
 			
-			questions.add(new Quiz("C c = new C(1) What will be returned if c.changeStr() is called and the code in the B class under the changeStr method (return str;) is changed to (return super.changeStr();)?", 23,  "STR1", "STR2", "STR3", "Error"));
+			questions.add(new Quiz("C c = new C(1); What will be returned if c.changeStr() is called and the code in the B class under the changeStr method (return str;) is changed to (return super.changeStr();)?", 23,  "STR1", "STR2", "STR3", "Error"));
 			
 			questions.add(new Quiz("B b = new C(5); What will be returned by b.doAThing();", 24,  "ABC", "Error", "B", "C"));
 		}
 		
-
+		public static void endGame()
+			{
+			Scanner userInput = new Scanner(System.in);
+			
+			double deciScore = score;
+			double deci = deciScore/24;
+			double percent = deci * 100;
+			
+			System.out.println("You're score was " + score +"/" +24 + " or " + percent);
+			
+			System.out.println("Would you like to record you score?");
+			
+			switch(userInput.nextInt())
+			{
+			
+			
+			
+			
+			}
+			
+			System.out.println("Would you like to take the quiz again?  1) Yes   2) No");
+			switch(userInput.nextInt())
+			{
+				case 1:
+				{
+				score =0;
+				askQuestions();
+				endGame();
+				break;
+				}
+				
+				case 2:
+				{
+					System.exit(0);
+					break;
+				}
+				
+				default:
+				{
+					endGame();
+					break;
+				}
+			}
+			}
 	}
