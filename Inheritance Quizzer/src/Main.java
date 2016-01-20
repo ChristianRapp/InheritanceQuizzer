@@ -20,8 +20,8 @@ public class Main
 		
 		public static void main(String[] args) throws IOException
 			{
-			A a = new A();
-			System.out.println(a.changeStr());
+			B b = new C(1);
+			System.out.println(b.doAThing());
 			
 			   addQuestions();
 			   mainMenu();
@@ -115,35 +115,35 @@ public class Main
 			
 			questions.add(new Quiz("A a = new A(); What will a.getANum() return?", 9,  "5", "10", "15", "1"));
 			
-			questions.add(new Quiz("A a = new A(): What will a.changeStr() return?", 10,  "STR1", "STR2", "Error", "STR"));
+			questions.add(new Quiz("A a = new A(); What will a.changeStr() return?", 10,  "STR1", "STR2", "Error", "STR"));
 			
-			questions.add(new Quiz("", 11,  "", "", "", ""));
+			questions.add(new Quiz("A a = new B(); What will a.party() return?", 11,  "Party", "Error because cannot be instantiated", "Error because there is no party method in B class", "party2"));
 			
-			questions.add(new Quiz("", 12,  "", "", "", ""));
+			questions.add(new Quiz("A a = new B(); What will the value of num be?", 12,  "10", "Error", "15", "0"));
 			
-			questions.add(new Quiz("", 13,  "", "", "", ""));
+			questions.add(new Quiz("B b = new A(); What will the value of number be after b.setNumber(3);?", 13,  "Error", "3", "15", "5"));
 			
-			questions.add(new Quiz("", 14,  "", "", "", ""));
+			questions.add(new Quiz("A a = new A(); What will be returned if a.doesCThings(); is called?", 14,  "Error", "C", "B", "A"));
 			
-			questions.add(new Quiz("", 15,  "", "", "", ""));
+			questions.add(new Quiz("C c = new B(); What will be returned if c.doesCThings(); is called?", 15,  "Error", "C", "B", "A"));
 			
-			questions.add(new Quiz("", 16,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(); What will be returned if c.doesCThings(); is called?", 16,  "Error", "C", "B", "A"));
 			
-			questions.add(new Quiz("", 17,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(1); What will be returned if c.doesCThings(); is called?", 17,  "C", "Error", "B", "A"));
 			
-			questions.add(new Quiz("", 18,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(1); What is the value of num?", 18,  "1", "10", "14", "15"));
 			
-			questions.add(new Quiz("", 19,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(1) What will be returned if c.changeStr() is called?", 19,  "", "", "", ""));
 			
-			questions.add(new Quiz("", 20,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(1) What will the value of num be if the line of code (num = i;) is taken out of the the C constructor?", 20,  "10", "1", "14", "5"));
 			
-			questions.add(new Quiz("", 21,  "", "", "", ""));
+			questions.add(new Quiz("A a = new C(1); What will a.changeStr() return?", 21,  "STR2", "STR1", "Error", "STR"));
 			
-			questions.add(new Quiz("", 22,  "", "", "", ""));
+			questions.add(new Quiz("A a = new C(2) What will the value of num be?", 22,  "2", "5", "1", "10"));
 			
-			questions.add(new Quiz("", 23,  "", "", "", ""));
+			questions.add(new Quiz("C c = new C(1) What will be returned if c.changeStr() is called and the code in the B class under the changeStr method (return str;) is changed to (return super.changeStr();)?", 23,  "STR1", "STR2", "STR3", "Error"));
 			
-			questions.add(new Quiz("", 24,  "", "", "", ""));
+			questions.add(new Quiz("B b = new C(5); What will be returned by b.doAThing();", 24,  "ABC", "Error", "B", "C"));
 		}
 		
 

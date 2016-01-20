@@ -13,5 +13,10 @@ public class C extends B
 	{
 		return "C";
 	}
+	
+	public String changeStr()
+	{
+		return super.changeStr();
+	}
 		
 	}

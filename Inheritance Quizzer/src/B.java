@@ -22,6 +22,12 @@ public class B extends A
 	{
 		str = "STR2";
 		return str;
+		
+	}
+	
+	public String doAThing()
+	{
+		return "ABC";
 	}
 
 	public int getNumber()
